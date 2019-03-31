@@ -1,0 +1,6 @@
+#
+# SSD1306 SPI driver for ESP32
+#
+
+COMPONENT_SRCDIRS := src
+COMPONENT_ADD_INCLUDEDIRS += include
