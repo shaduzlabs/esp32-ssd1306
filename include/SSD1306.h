@@ -36,6 +36,8 @@ public:
       gpio_num_t data;
       gpio_num_t dc;
       gpio_num_t reset;
+      spi_host_device_t spiHost;
+      int dmaChannel;
   };
 
   SSD1306(PinConfig);

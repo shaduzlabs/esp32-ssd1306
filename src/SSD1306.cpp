@@ -60,7 +60,7 @@ void SSD1306::initialize()
   bus_config.quadhd_io_num = -1;              // Not used
   bus_config.max_transfer_sz = 1024;
 
-  ESP_ERROR_CHECK(spi_bus_initialize(HSPI_HOST, &bus_config, 1));
+  ESP_ERROR_CHECK(spi_bus_initialize(m_pinConfig.spiHost, &bus_config, m_pinConfig.dmaChannel));
   ESP_LOGI("SSD1306", "SPI bus initialized");
 
   spi_device_interface_config_t dev_config{};
@@ -69,7 +69,7 @@ void SSD1306::initialize()
   dev_config.spics_io_num = m_pinConfig.chipSelect;
   dev_config.queue_size = 7;
 //  dev_config.pre_cb = preTransferCallbackSPI;
-  ESP_ERROR_CHECK(spi_bus_add_device(HSPI_HOST, &dev_config, &m_spiDevice));
+  ESP_ERROR_CHECK(spi_bus_add_device(m_pinConfig.spiHost, &dev_config, &m_spiDevice));
 
   // Initialize the display
   command({M_CMD(displayOff)});
