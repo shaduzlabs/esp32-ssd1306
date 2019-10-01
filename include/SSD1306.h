@@ -11,6 +11,7 @@
 
 #include <rastr/CanvasMonochrome.hpp>
 
+#include <driver/gpio.h>
 #include <driver/spi_master.h>
 
 #include <cstdint>
